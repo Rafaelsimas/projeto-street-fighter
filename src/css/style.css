@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  max-width: 1280px; /* Largura máxima do corpo */
+  margin: 0 auto; /* espaço em cima e em baixo e automático nas laterais */
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; /*define como o navegador distribui o espaço entre e ao redor dos itens de conteúdo ao longo do eixo principal de um contêiner flex e o eixo embutido de contêineres grid e multicol. */
+  min-height: 100vh; /* altura mínima desse container será 100vh */
+}
+
+.carrossel {
+  position: fixed; /* Vai segurar a div na tela (Deixar fixa) */
+  top: 0; /* Vai colar no topo da página */
+  left: 0; /* vai colar na lateral de onde parte o conteúdo */
+  width: 100%; /* Independente da resolução, vai ocupar 100% da tela */
+  z-index: -1; /* altera a disposição do elemento. O -1 faz com que o mesmo seja enviado para tráz */
+}
+
+.informacoes {
+  /* */
+  display: none;
+  /*
+   Escondendo todos os conteúdos de texto 
+   display =  exibição
+   none = nenhuma
+   */
+}
+
+.informacoes.ativo {
+  /* Mostrando a classe que tem a classe ativo */
+  display: block;
+
+  padding: 2rem;
+}
+
+.informacoes h1 {
+  font-size: 35px;
+  color: white;
+  margin-bottom: 80px;
+  letter-spacing: 8px; /* espaço entre as letras */
+}
+
+.informacoes .descricao {
+  width: 79%;
+  font-size: 24px;
+  color: white;
+  line-height: 40px;
+  height: 300px;
+  overflow: auto;
+  padding-right: 15px;
+}
+
+.botoes-carrossel {
+  display: flex;
+  gap: 20px;
+}
+
+.botoes-carrossel .botao {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-color: white;
+}
+
+.botoes-carrossel .botao.selecionado {
+  background-color: #d70e0e;
+}
+
+.imagem {
+  width: 100vw; /* view port width largura da área de visualização */
+  height: 100vh; /* view port width altura da área de visualização  */
+  object-fit: cover;
+  display: none;
+}
+
+.imagem.ativa {
+  display: block;
+  animation: mudarImagem 0.7s;
+}
+
+@keyframes mudarImgagem {
+  from {
+    opacity: 0.85d;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main:after {
+  /* elemento fantasma */
+  content: "";
+  min-height: 100vh;
+  width: 100vw;
+  background-color: red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.7175245098039216) 35%,
+    rgba(96, 96, 96, 0.6026785714285714) 100%
+  );
+  z-index: -1;
+}

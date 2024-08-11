@@ -1,0 +1,59 @@
+/* 
+O objetivo da responsividade é garantir que o laytout da página se adapte a tamanhos deferentes de dispositivos.
+
+Computador e diferentes tamanhos de tela, tablets de diferentes tamanhos de tela e smartfones de diferentes tamanhos de tela.
+
+
+Para isso nós usamos as media queries
+
+@media (max-width:1280px)
+1280px ou menos
+Se fosse min-width seria min-width.
+tudo o que estiver dentro do bloco serão aplicado assim que a tela alcançar a largura de 1280px ou menos
+
+*/
+
+@media (max-width: 1280px) {
+  body {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* igual ou menor que 768px */
+  .informacoes.ativa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .informacoes .descricao {
+    width: 100%; /* aplica 100 para teste */
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  body {
+    padding: 10px;
+  }
+
+  .informacoes {
+    width: 100%;
+  }
+
+  .informacoes .descricao {
+    width: 100%;
+    text-align: center;
+  }
+
+  .conteudo {
+    min-height: 70vh;
+    gap: 50px;
+  }
+
+  .informacoes h1 {
+    text-align: center;
+    font-size: 58px;
+  }
+}
